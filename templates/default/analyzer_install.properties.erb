@@ -1,0 +1,22 @@
+#
+# This is a template file for the silent installation of 'Analyzer for Identity Manager'.
+# Make a copy of this file, modify the parameters and pass it to the respective platform installer.
+#
+# The command syntax for the installers are as follows -
+# Linux:
+# <CD_Analyzer_linux_path_>/analyzer_install/install -i silent -f <path>/analyzerInstaller.properties
+# Windows:
+# <CD_Analyzer_windows_path>\analyzer_install\install.exe -i silent -f <path>\analyzerInstaller.properties
+#
+
+
+#--------------------------------------------------------------------------------
+# This parameter identifies the location where the Analyzer should be installed. 
+#
+# Example for Linux:
+# USER_INSTALL_DIR=/home/user/analyzer
+# Example for Windows:
+# USER_INSTALL_DIR=C:\\Program Files\\Novell\\Analyzer
+# Please note for Windows the path separators is "\\"
+#--------------------------------------------------------------------------------
+USER_INSTALL_DIR=<%= node["analyzer"]["analyzer_install_loc"] %>
