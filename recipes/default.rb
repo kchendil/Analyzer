@@ -20,13 +20,20 @@ template "/tmp/analyzer_install.properties" do
   mode "0644"  
 end
 
-script "Install Analyzer " do
-  interpreter "bash"
-  user "root"
-  cwd "/tmp"
-  code <<-EOH  
-  \"#{analyzer_build_loc}\" -DIA_USER_JRE_HOME=\"#{jre_loc}\" -i silent -f \"/tmp/analyzer_install.properties\";
-  EOH
+# script "Install Analyzer " do
+  # interpreter "bash"
+  # user "root"
+  # cwd "/tmp"
+  # code <<-EOH  
+  # \"#{analyzer_build_loc}\" -DIA_USER_JRE_HOME=\"#{jre_loc}\" -i silent -f \"/tmp/analyzer_install.properties\";
+  # EOH
+# end
+
+
+execute "Install Analyzer" do
+  command " \"#{analyzer_build_loc}\" -DIA_USER_JRE_HOME=\"#{jre_loc}\" -i silent -f \"/tmp/analyzer_install.properties\" "
+  creates "/opt/novell/idm/Analyzer/Analyzer"
+  action :run
 end
 
 
